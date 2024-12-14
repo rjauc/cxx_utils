@@ -16,14 +16,14 @@ namespace LOG
 
     namespace internal
     {
-        static inline const std::unordered_map<Severity, const char*> SEVERITY_TERM_COLORS = {
+        static const std::unordered_map<Severity, const char*> SEVERITY_TERM_COLORS = {
             { Severity::Debug,   "\033[90m" },
             { Severity::Info,    "\033[96m" },
             { Severity::Warning, "\033[33m" },
             { Severity::Error,   "\033[91m" },
         };
-        static inline const char* RESET_TERM_COLOR = "\033[0m";
-        static inline std::unordered_set<std::filesystem::path> g_initializedFiles;
+        static const char* RESET_TERM_COLOR = "\033[0m";
+        static std::unordered_set<std::filesystem::path> g_initializedFiles;
     }
 
     class Logger {
