@@ -19,6 +19,9 @@ int main(int argc, char** argv) {
 
     // Test parsing
     ASSERT(args.Parse(argc, argv), "Parsing failed.");
+    // Test implicit args
+    ASSERT(args.IsSet("Executable"), "Executable arg is not set.");
+    ASSERT(args.GetStr("Executable").ends_with("test_argparse.exe"), "Executable arg does not end with program name.");
     // Test booleans
     ASSERT(args.IsSet("MandatoryBool"), "Mandatory bool should be set.");
     ASSERT(args.GetBool("MandatoryBool"), "Mandatory bool is set, but value does not match.");
